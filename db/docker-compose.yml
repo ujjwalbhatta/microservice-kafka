@@ -1,0 +1,23 @@
+version: 'version: 3'
+
+services:
+  catalog_db_server:
+    image: "postgres:14.0"
+    ports:
+      - "5412:5432"
+    volumes:
+      - ./db-data/catalog_db_server:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres_user
+      - POSTGRES_PASSWORD=postgres_password
+      - POSTGRES_DB=postgres_service
+  order_db_server:
+    image: "postgres:14.0"
+    ports:
+      - "5413:5432"
+    volumes:
+      - ./db-data/order_db_server:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=order_user
+      - POSTGRES_PASSWORD=order_password
+      - POSTGRES_DB=order_service    
